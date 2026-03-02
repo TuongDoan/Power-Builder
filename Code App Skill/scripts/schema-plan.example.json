@@ -1,0 +1,72 @@
+{
+  "tables": [
+    {
+      "SchemaName": "tuongd_NoteCategory20260228",
+      "DisplayName": "Note Category",
+      "DisplayCollectionName": "Note Categories",
+      "Description": "Dimension table — categories to organize notes",
+      "OwnershipType": "UserOwned",
+      "IsActivity": false,
+      "HasActivities": false,
+      "HasNotes": false,
+      "LanguageCode": 1033,
+      "PrimaryName": {
+        "SchemaName": "tuongd_NoteCategory20260228Name",
+        "DisplayName": "Category Name",
+        "Description": "Primary name for the category",
+        "MaxLength": 100
+      },
+      "Attributes": [
+        {
+          "SchemaName": "tuongd_CategoryDescription",
+          "DisplayName": "Category Description",
+          "Description": "Optional description of the category",
+          "Type": "Memo",
+          "MaxLength": 2000
+        }
+      ]
+    },
+    {
+      "SchemaName": "tuongd_Note20260228",
+      "DisplayName": "Note",
+      "DisplayCollectionName": "Notes",
+      "Description": "Fact table — individual notes linked to a category via lookup",
+      "OwnershipType": "UserOwned",
+      "IsActivity": false,
+      "HasActivities": false,
+      "HasNotes": false,
+      "LanguageCode": 1033,
+      "PrimaryName": {
+        "SchemaName": "tuongd_Note20260228Name",
+        "DisplayName": "Note Title",
+        "Description": "Primary name for the note",
+        "MaxLength": 200
+      },
+      "Attributes": [
+        {
+          "SchemaName": "tuongd_NoteBody",
+          "DisplayName": "Note Body",
+          "Description": "Main content of the note",
+          "Type": "Memo",
+          "MaxLength": 10000
+        },
+        {
+          "SchemaName": "tuongd_NoteIsPinned",
+          "DisplayName": "Is Pinned",
+          "Description": "Whether the note is pinned to the top",
+          "Type": "Boolean",
+          "DefaultValue": false
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "referencingEntity": "tuongd_note20260228",
+      "referencedEntity": "tuongd_notecategory20260228",
+      "schemaName": "tuongd_NoteCategory20260228_Note20260228",
+      "lookupSchemaName": "tuongd_CategoryId",
+      "lookupDisplayName": "Category"
+    }
+  ]
+}
