@@ -21,7 +21,6 @@ Create a database plan after scaffolding, then provision Dataverse tables from t
 5. Add lookup columns only when a cross-table relationship is required.
 6. Multi-table plans may include independent tables (for example master data) without links.
 7. Use "tuongd" as prefix.
-8. Try to use 2 tables approach.
 
 ## When to choose single table vs multi-table
 - Single table is the default when:
